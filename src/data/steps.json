@@ -4,9 +4,15 @@
     "messageHeader": "Where am I?",
     "message": "You wake up, rub the crust out of your eyes and look around. You see four walls, and a ceiling. You're probably in a room. You check the ground. Yup. Floor. You're in a room.",
     "choices": [{
-      "text": "Try to walk around"
+      "text": "Try to walk around",
+      "penalty": {
+	"time": -5
+      }
     }, {
-      "text": "Stand still"
+      "text": "Stand still",
+      "penalty": {
+	"time": -15
+      }
     }]
 }, {
     "header": "Taking it all in",
@@ -14,11 +20,26 @@
     "notification":"Achievement Unlocked: You moved!",
     "message": "The floor seems pretty solid. You think you can stand on it. Putting your foot onto the floor, you see it's quite solid and should support your weight. You stand on the floor and don't fall through. You're amazing!",
     "choices": [{
-      "text": "Shout 'hello'"
+      "text": "Shout 'hello'",
+      "penalty": {
+	"time": -15
+      }
     }]
 }, {
-    "header": "",
+    "header": "Is there an echo?",
     "messageHeader": "",
-    "notification":"",
-    "message": "You shout 'hello'. No one responds."
+    "notification":"No one cares",
+    "message": "You shout 'hello'. No one responds. You see a coin slot on the wall. For some reason you have a coin in your hand.",
+    "choices": [{
+      "text": "Put the coin in the slot",
+      "penalty": {
+	"time": -5,
+	"money": -5
+      }
+    }]
+}, {
+    "header": "Gotta spend it to make it",
+    "messageHeader": "",
+    "notification":"You lost a coin.",
+    "message": "A door appears before you. It's open."
 }]

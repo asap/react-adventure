@@ -5,6 +5,10 @@ import ChoicesList from './ChoicesList';
 import HealthBar from './HealthBar';
 
 const App = props => {
+  const onSelectChoice = () => {
+    props.nextStep(props.currentStep);
+  }
+
   const maybeRenderChoicesList = () => {
     const { choices } = props.step;
     if (choices) {
@@ -12,7 +16,7 @@ const App = props => {
         <div className="ui segment">
           <ChoicesList
             choices={choices}
-            onSelectChoice={() => props.nextStep(props.currentStep)}
+	    selectChoice={() => onSelectChoice()}
           />
         </div>
       );
