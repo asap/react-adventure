@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { nextStep } from '../actions';
 import ChoicesList from './ChoicesList';
+import HealthBar from './HealthBar';
 
 const App = props => {
   const maybeRenderChoicesList = () => {
@@ -22,6 +23,7 @@ const App = props => {
       <div className="ui menu">
         <div className="item">Home</div>
       </div>
+      <HealthBar stats={props.stats}/>
       <h1 className="ui header">{props.step.header}</h1>
       <div className="ui small image">
         <img alt="cage" src="http://www.placecage.com/300/300" />
