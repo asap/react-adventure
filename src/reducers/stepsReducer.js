@@ -1,8 +1,11 @@
 import { NEXT_STEP } from '../actions/types';
 
+// TODO: Should this be in actions?
+import steps from '../data/steps.json';
+
 const INITIAL_STATE = {
   currentStep: 0,
-  steps: [],
+  steps,
 };
 
 export default (state = INITIAL_STATE, action) => {
