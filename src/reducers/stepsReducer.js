@@ -4,14 +4,15 @@ import { NEXT_STEP } from '../actions/types';
 import steps from '../data/steps.json';
 
 const INITIAL_STATE = {
-  currentStep: 0,
+  currentStep: 'start',
   steps,
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case NEXT_STEP:
-      return { ...state, currentStep: action.payload+1 };
+      console.log("action", action);
+      return { ...state, currentStep: action.payload };
     default:
       return state;
   }

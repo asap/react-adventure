@@ -7,7 +7,6 @@ import { NEXT_STEP, TRIGGER_CHOICE } from './types';
 // UPDATE_STATS
 
 export const triggerChoice = choice => {
-  console.log("trigger choice", choice);
   // TODO: this should alter stats?
   // TODO: Add notification thingie too
   return { type: TRIGGER_CHOICE, payload: choice };

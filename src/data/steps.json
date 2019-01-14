@@ -1,45 +1,118 @@
-[
-  {
-    "header": "WTF",
+{
+  "start": {
+    "header": "Starting",
     "messageHeader": "Where am I?",
-    "message": "You wake up, rub the crust out of your eyes and look around. You see four walls, and a ceiling. You're probably in a room. You check the ground. Yup. Floor. You're in a room.",
-    "choices": [{
-      "text": "Try to walk around",
-      "penalty": {
-	"time": -5
+    "message":
+      "You wake up, rub the crust out of your eyes and look around. You see four walls, and a ceiling. You're probably in a room. You check the ground. Yup. Floor. You're in a room.",
+    "choices": [
+      {
+        "text": "Try to walk around the room",
+        "penalty": {
+          "time": -5
+        },
+        "nextNode": "walking"
+      },
+      {
+        "text": "Look around the room",
+        "penalty": {
+          "time": -15
+        },
+        "nextNode": "standingStill"
       }
-    }, {
-      "text": "Stand still",
-      "penalty": {
-	"time": -15
-      }
-    }]
-}, {
-    "header": "Taking it all in",
+    ]
+  },
+  "walking": {
+    "header": "Take a walk",
     "messageHeader": "Walking around",
-    "notification":"Achievement Unlocked: You moved!",
-    "message": "The floor seems pretty solid. You think you can stand on it. Putting your foot onto the floor, you see it's quite solid and should support your weight. You stand on the floor and don't fall through. You're amazing!",
-    "choices": [{
-      "text": "Shout 'hello'",
-      "penalty": {
-	"time": -15
+    "notification": "Achievement Unlocked: You moved!",
+    "message":
+      "You walk around the room. Your footsteps echo on the cold floor. When you stop walking, your eyes turn to the only door in the room.",
+    "choices": [
+      {
+        "text": "Shout 'hello'",
+        "penalty": {
+          "time": -15
+        },
+	"nextNode": "shout"
+      }, {
+        "text": "Look at the door",
+        "penalty": {
+          "time": -5
+        },
+        "nextNode": "door"
       }
-    }]
-}, {
+    ]
+  },
+  "standingStill": {
+    "header": "Taking it all in",
+    "messageHeader": "Standing Around",
+    "notification": "Achievement Unlocked: Laziness",
+    "message":
+      "The floor seems pretty solid. You think you can stand on it. Putting your foot onto the floor, you see it's quite solid and should support your weight. You stand on the floor and don't fall through. You're amazing! After all this revelry, you notice there's a door in the room.",
+    "choices": [
+      {
+        "text": "Shout 'hello'",
+        "penalty": {
+          "time": -15
+        },
+	"nextNode": "shout"
+      }, {
+        "text": "Look at the door",
+        "penalty": {
+          "time": -5
+        },
+        "nextNode": "door"
+      }
+    ]
+  },
+  "shout": {
     "header": "Is there an echo?",
     "messageHeader": "",
-    "notification":"No one cares",
-    "message": "You shout 'hello'. No one responds. You see a coin slot on the wall. For some reason you have a coin in your hand.",
-    "choices": [{
-      "text": "Put the coin in the slot",
-      "penalty": {
-	"time": -5,
-	"money": -5
+    "notification": "No one cares",
+    "message":
+      "You shout 'hello'. No one responds. The door in the room appears to be judging you. Or maybe it's just a door.",
+    "choices": [
+      {
+        "text": "Put the coin in the slot",
+        "penalty": {
+          "time": -5,
+          "money": -5
+        },
+	"nextNode": "coinInSlot"
+      }, {
+        "text": "Look at the door",
+        "penalty": {
+          "time": -5
+        },
+        "nextNode": "door"
       }
-    }]
-}, {
+    ]
+  },
+  "door": {
+    "header": "A door",
+    "messageHeader": "There's a door",
+    "message": "You see a door. It's the only thing in the room. There's a coin slot in the wall next to the door. For some reason, you notice that you've been carrying a coin in your hand all this time.",
+    "choices": [
+      {
+        "text": "Put the coin in the slot",
+        "penalty": {
+          "time": -5,
+          "money": -5
+        },
+	"nextNode": "coinInSlot"
+      }
+    ]
+  },
+  "coinInSlot": {
     "header": "Gotta spend it to make it",
     "messageHeader": "",
-    "notification":"You lost a coin.",
+    "notification": "You lost a coin.",
     "message": "A door appears before you. It's open."
-}]
+  },
+  "endTime": {
+    "header": "YOU DIED",
+    "messageHeader": "Out of time",
+    "notification": "Achievement Unlocked: Death",
+    "message": "You ran out of time"
+  }
+}
