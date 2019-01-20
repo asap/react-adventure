@@ -1,4 +1,4 @@
-import { TRIGGER_CHOICE } from '../actions/types';
+import { TRIGGER_CHOICE, RESET_GAME } from '../actions/types';
 
 const INITIAL_STATE = {
   health: 99,
@@ -9,13 +9,21 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case TRIGGER_CHOICE:
-      const { health, money, time } = action.payload.penalty;
+      if (action.payload.penalty) {
+        const { health, money, time } = action.payload.penalty;
+        return {
+          ...state,
+          health: state.health + health || state.health,
+          money: state.money + money || state.money,
+          time: state.time + time || state.time,
+        };
+      }
+      return state;
+    case RESET_GAME:
       return {
-        ...state,
-        health: state.health + health || state.health,
-        money: state.money + money || state.money,
-        time: state.time + time || state.time,
+        ...INITIAL_STATE,
       };
+
     default:
       return state;
   }

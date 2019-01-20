@@ -1,0 +1,10 @@
+{
+  "endTime": {
+    "header": "Game Over",
+    "message": "You ran out of time"
+  },
+  "end": {
+    "header": "Game Over",
+    "message": "There's nothing to see here"
+  } 
+}

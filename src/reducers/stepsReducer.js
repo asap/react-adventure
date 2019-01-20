@@ -1,4 +1,4 @@
-import { NEXT_STEP } from '../actions/types';
+import { NEXT_STEP, RESET_GAME } from '../actions/types';
 
 // TODO: Should this be in actions?
 import steps from '../data/steps.json';
@@ -11,8 +11,12 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case NEXT_STEP:
-      console.log("action", action);
       return { ...state, currentStep: action.payload };
+    case RESET_GAME:
+      return {
+        ...INITIAL_STATE,
+      };
+
     default:
       return state;
   }

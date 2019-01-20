@@ -2,8 +2,7 @@
   "start": {
     "header": "Starting",
     "messageHeader": "Where am I?",
-    "message":
-      "You wake up, rub the crust out of your eyes and look around. You see four walls, and a ceiling. You're probably in a room. You check the ground. Yup. Floor. You're in a room.",
+    "message": "You wake up, rub the crust out of your eyes and look around. You see four walls, and a ceiling. You're probably in a room. You check the ground. Yup. Floor. You're in a room.",
     "choices": [
       {
         "text": "Try to walk around the room",
@@ -25,16 +24,16 @@
     "header": "Take a walk",
     "messageHeader": "Walking around",
     "notification": "Achievement Unlocked: You moved!",
-    "message":
-      "You walk around the room. Your footsteps echo on the cold floor. When you stop walking, your eyes turn to the only door in the room.",
+    "message": "You walk around the room. Your footsteps echo on the cold floor. When you stop walking, your eyes turn to the only door in the room.",
     "choices": [
       {
         "text": "Shout 'hello'",
         "penalty": {
           "time": -15
         },
-	"nextNode": "shout"
-      }, {
+        "nextNode": "shout"
+      },
+      {
         "text": "Look at the door",
         "penalty": {
           "time": -5
@@ -47,16 +46,16 @@
     "header": "Taking it all in",
     "messageHeader": "Standing Around",
     "notification": "Achievement Unlocked: Laziness",
-    "message":
-      "The floor seems pretty solid. You think you can stand on it. Putting your foot onto the floor, you see it's quite solid and should support your weight. You stand on the floor and don't fall through. You're amazing! After all this revelry, you notice there's a door in the room.",
+    "message": "The floor seems pretty solid. You think you can stand on it. Putting your foot onto the floor, you see it's quite solid and should support your weight. You stand on the floor and don't fall through. You're amazing! After all this revelry, you notice there's a door in the room.",
     "choices": [
       {
         "text": "Shout 'hello'",
         "penalty": {
           "time": -15
         },
-	"nextNode": "shout"
-      }, {
+        "nextNode": "shout"
+      },
+      {
         "text": "Look at the door",
         "penalty": {
           "time": -5
@@ -69,8 +68,7 @@
     "header": "Is there an echo?",
     "messageHeader": "",
     "notification": "No one cares",
-    "message":
-      "You shout 'hello'. No one responds. The door in the room appears to be judging you. Or maybe it's just a door.",
+    "message": "You shout 'hello'. No one responds. The door in the room appears to be judging you. Or maybe it's just a door.",
     "choices": [
       {
         "text": "Put the coin in the slot",
@@ -78,8 +76,9 @@
           "time": -5,
           "money": -5
         },
-	"nextNode": "coinInSlot"
-      }, {
+        "nextNode": "coinInSlot"
+      },
+      {
         "text": "Look at the door",
         "penalty": {
           "time": -5
@@ -99,7 +98,7 @@
           "time": -5,
           "money": -5
         },
-	"nextNode": "coinInSlot"
+        "nextNode": "coinInSlot"
       }
     ]
   },
@@ -107,12 +106,13 @@
     "header": "Gotta spend it to make it",
     "messageHeader": "",
     "notification": "You lost a coin.",
-    "message": "A door appears before you. It's open."
-  },
-  "endTime": {
-    "header": "YOU DIED",
-    "messageHeader": "Out of time",
-    "notification": "Achievement Unlocked: Death",
-    "message": "You ran out of time"
+    "message": "A door appears before you. It's open.",
+    "choices": [
+      {
+        "penalty": null,
+        "text": "Step through door",
+        "nextNode": "end"
+      }
+    ]
   }
 }
