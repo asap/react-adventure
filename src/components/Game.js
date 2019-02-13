@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { endGame, resetGame } from '../actions';
+import { initGame, endGame, resetGame } from '../actions';
 import Start from './scenes/Start';
 import Step from './scenes/Step';
 import End from './scenes/End';
 
 class Game extends React.Component {
+  componentDidMount() {
+    console.log("loading");
+    this.props.initGame();
+  }
   componentDidUpdate() {
     // Check game stats
     const { time, scene } = this.props;
@@ -14,12 +18,12 @@ class Game extends React.Component {
     }
 
     // Make sure we're not already in game over
-    if (time <= 0 && scene === "playing") {
+    if (time <= 0 && scene === 'playing') {
       this.props.endGame('endTime');
     }
   }
 
-  render () {
+  render() {
     if (this.props.scene === 'end') {
       return <End />;
     } else if (this.props.scene === 'playing') {
@@ -28,7 +32,7 @@ class Game extends React.Component {
       return <Start />;
     }
   }
-};
+}
 
 const mapStateToProps = state => {
   const { scene } = state.sceneReducer;
@@ -42,7 +46,11 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {
-  endGame,
-  resetGame,
-})(Game);
+export default connect(
+  mapStateToProps,
+  {
+    initGame,
+    endGame,
+    resetGame,
+  },
+)(Game);
